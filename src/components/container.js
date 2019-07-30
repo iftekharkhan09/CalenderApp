@@ -3,9 +3,7 @@ import './container.css';
 import DisplayMeasure from "./display-measure";
 import Financial from "./financials";
 import './financial.css'
-import './week-financial-container.css'
 import DisplayBy from "./display-by";
-import Grid from "./grid";
 
 class Container extends Component {
     render() {
@@ -14,21 +12,18 @@ class Container extends Component {
                 <div className="container">
                     <DisplayMeasure/>
                     <div className="financial-container">
-                        <Financial />
-                        <Financial />
-                        <Financial />
-                        <Financial />
-                        <Financial />
-                        <Financial />
-                        <Financial />
-                        <Financial />
+                        <Financial index="0"/>
+                        <Financial index="1"/>
+                        <Financial index="2"/>
+                        <Financial index="3"/>
+                        <Financial index="4"/>
+                        <Financial index="5"/>
+                        <Financial index="6"/>
+                        <Financial index="7"/>
                     </div>
                 </div>
-                 <div className="container">
                     <DisplayBy/>
-                    <Grid/>
                  </div>
-             </div>
         );
     }
 }

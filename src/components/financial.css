@@ -1,12 +1,11 @@
 .financial {
     display: grid;
-
     flex-direction: column;
 
 }
 
 .financial > div {
-    width: 230px;
+    width: 150px;
     border-right: lightgray 1px solid;
     padding-left: 10px;
 }

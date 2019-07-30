@@ -1,12 +1,15 @@
-.display-by{
-    display: flex;
-    flex-direction: column;
-    border-bottom: lightgray 1px solid;
-    grid-auto-columns: minmax(100px, auto);
-    width: 300px;
-    padding: 10px;
+.grid {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-auto-rows: minmax(5px, auto);
+    border-bottom: lightgray 1px solid
 }
 
-.display-by > div {
-    border-right: lightgray 1px solid;
+.grid>div {
+    padding: 10px;
+    border: lightgrey 1px solid;
+}
+
+.columnName{
+    width:314px;
 }
