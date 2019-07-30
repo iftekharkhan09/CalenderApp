@@ -16,3 +16,8 @@
 .columnName1{
     width:175px;
 }
+
+.draggable-item {
+    background-color: red;
+    text-align: center;
+}
