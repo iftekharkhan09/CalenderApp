@@ -1,10 +1,6 @@
 .financial-container {
-    display: grid;
-    grid-template-columns:repeat(8, 10px);
-    grid-auto-columns: 20px;
-    border-bottom: lightgray 1px solid
+    width: 300px;
 }
-.financial-container >div {
-    border-left: lightgrey 1px solid;
-    padding: 10px;
+
+.financial-container > div {
 }

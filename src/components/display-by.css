@@ -1,0 +1,12 @@
+.display-by{
+    display: flex;
+    flex-direction: column;
+    border-bottom: lightgray 1px solid;
+    grid-auto-columns: minmax(100px, auto);
+    width: 300px;
+    padding: 10px;
+}
+
+.display-by > div {
+    border-right: lightgray 1px solid;
+}

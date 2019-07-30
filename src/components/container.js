@@ -3,20 +3,32 @@ import './container.css';
 import DisplayMeasure from "./display-measure";
 import Financial from "./financials";
 import './financial.css'
+import './week-financial-container.css'
+import DisplayBy from "./display-by";
+import Grid from "./grid";
 
-class Container extends Component{
+class Container extends Component {
     render() {
-        const noOfTimes = 8;
          return (
-            <div className="container">
-                <div><DisplayMeasure/></div>
-                <div className="financial-container">
-                    <Financial />
-                    <Financial />
-                    <Financial />
-                    <Financial />
+             <div>
+                <div className="container">
+                    <DisplayMeasure/>
+                    <div className="financial-container">
+                        <Financial />
+                        <Financial />
+                        <Financial />
+                        <Financial />
+                        <Financial />
+                        <Financial />
+                        <Financial />
+                        <Financial />
+                    </div>
                 </div>
-                </div>
+                 <div className="container">
+                    <DisplayBy/>
+                    <Grid/>
+                 </div>
+             </div>
         );
     }
 }

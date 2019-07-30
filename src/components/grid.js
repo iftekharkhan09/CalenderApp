@@ -4,7 +4,16 @@ import './grid.css';
 class Grid extends Component{
     render() {
         return (
-            <div className="grid">
+            <div>
+            <div className="grid"></div>
+            <div className="grid"></div>
+            <div className="grid"></div>
+                <div className="grid"></div>
+                <div className="grid"></div>
+                <div className="grid"></div>
+                <div className="grid"></div>
+                <div className="grid"></div>
+                <div className="grid"></div>
             </div>
         );
     }

@@ -1,8 +1,12 @@
 .financial {
-    display: flex;
+    display: grid;
+
     flex-direction: column;
+
 }
 
 .financial > div {
-    display: grid;
+    width: 230px;
+    border-right: lightgray 1px solid;
+    padding-left: 10px;
 }
