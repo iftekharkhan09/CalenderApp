@@ -1,0 +1,8 @@
+.financial {
+    display: flex;
+    flex-direction: column;
+}
+
+.financial > div {
+    display: grid;
+}
