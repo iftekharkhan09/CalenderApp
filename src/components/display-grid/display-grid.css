@@ -2,18 +2,23 @@
     display: grid;
     grid-template-columns: repeat(9, 1fr);
     grid-auto-rows: minmax(5px, auto);
-    border-bottom: lightgray 1px solid
+    grid-auto-columns: minmax(200px, auto);
+    border-bottom: lightgray 1px solid;
+    width:100%;
 }
 
 .grid > div {
-    padding: 10px;
     border: lightgrey 1px solid;
 }
 
 .product-name{
-    width:216px;
+    width: 250px;
+    box-sizing: border-box;
 }
 .grid-cell{
+    height: 30px;
+    width: 200px;
+    box-sizing: border-box;
 }
 
 .promo-graph{}
