@@ -12,19 +12,19 @@ class DisplayMeasure extends Component{
                     <br></br>
                 </div>
                 <div>
-                Promoted weeks forecast
+                A
                 </div>
                 <div>
-                    Non Promoted weeks forecast
+                    B
                 </div>
                 <div>
-                    Total forecast
+                    C
                 </div>
                 <div>
-                    Markdown $
+                    D
                 </div>
                 <div>
-                    Number Of promotion
+                   E
                 </div>
             </div>
         );

@@ -5,7 +5,7 @@ import {Rnd} from "react-rnd";
 class BarComponent extends Component {
     render() {
         return (
-            <Rnd disableDragging={true}
+            <Rnd
                 default={{
                     x: this.props.barcode.x,
                     y: this.props.barcode.y,

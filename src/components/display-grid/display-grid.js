@@ -26,9 +26,7 @@ class DisplayGrid extends Component{
         };
         return (
             <div className="promo-graph">
-                <BarComponent barcode={barData1}/>
                 <BarComponent barcode={barData2}/>
-                <BarComponent barcode={barData3}/>
                 <div className="grid">
                     <div className="product-name">Coke 330 ml</div>
                     <div className="grid-cell"></div>
