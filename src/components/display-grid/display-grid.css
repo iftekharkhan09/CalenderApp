@@ -5,17 +5,18 @@
     border-bottom: lightgray 1px solid
 }
 
-.grid>div {
+.grid > div {
     padding: 10px;
     border: lightgrey 1px solid;
 }
 
-.columnName{
+.product-name{
     width:216px;
 }
-.columnName1{
-    width:175px;
+.grid-cell{
 }
+
+.promo-graph{}
 
 .draggable-item {
     background-color: red;

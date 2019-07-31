@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import Container from "./components/container";
+import PromoCalender from "./components/promo-calender/promo-calender";
 
-ReactDOM.render(<Container />, document.getElementById('root'));
+ReactDOM.render(<PromoCalender />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

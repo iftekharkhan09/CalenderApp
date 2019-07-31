@@ -1,4 +1,4 @@
-.container {
+.week-financial {
     display: grid;
     grid-template-columns: 1fr 6fr;
     grid-auto-rows: minmax(30px, auto);
@@ -7,7 +7,7 @@
     align-items: center;
     padding-bottom: 30px;
 }
-.container > div {
+.week-financial > div {
     display: flex;
     justify-content: space-evenly;
     border-left: lightgrey 1px solid;

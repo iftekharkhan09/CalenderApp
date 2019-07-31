@@ -1,20 +1,20 @@
 import React, {Component} from 'react';
-import './container.css';
-import DisplayMeasure from "./display-measure";
-import Financial from "./financials";
-import './financial.css'
-import DisplayBy from "./display-by";
+import './promo-calender.css';
+import DisplayMeasure from "../display-measure/display-measure";
+import Financial from "../financial/financials";
+import DisplayGrid from "../display-grid/display-grid";
 
-class Container extends Component {
+
+class PromoCalender extends Component {
     render() {
          return (
              <div>
-                <div className="container">
+                <div className="week-financial">
                     <DisplayMeasure/>
                     <div className="financial-container">
                         <Financial index="0"/>
                         <Financial index="1"/>
-                        <Financial index="2"/>
+                        <Financial index="2"/>x
                         <Financial index="3"/>
                         <Financial index="4"/>
                         <Financial index="5"/>
@@ -22,9 +22,9 @@ class Container extends Component {
                         <Financial index="7"/>
                     </div>
                 </div>
-                    <DisplayBy/>
+                    <DisplayGrid/>
                  </div>
         );
     }
 }
-export default Container;
+export default PromoCalender;

@@ -1,26 +1,37 @@
 import React, {Component} from 'react';
-import './display-by.css';
+import BarComponent from "../promo-bar/bar-component";
 import GridComponent from "./grid-component";
-import {Rnd} from "react-rnd";
 
-class DisplayBy extends Component{
+class DisplayGrid extends Component{
     render() {
+        const barData1 = {
+            x : 0,
+            y:0,
+            width: 320,
+            height: 200,
+        };
 
+        const barData2 ={
+            x : 200,
+            y:10,
+            width: 320,
+            height: 200,
+        };
+
+        const barData3 ={
+            x : 200,
+            y:200,
+            width: 320,
+            height: 200,
+        };
         return (
-            <div>
-                <Rnd
-                    default={{
-                        x: 0,
-                        y: 0,
-                        width: 320,
-                        height: 200,
-                    }}
-                >
-                    <div className='draggable-item'> Drag me</div>
-                </Rnd>
+            <div className="promo-graph">
+                <BarComponent barcode={barData1}/>
+                <BarComponent barcode={barData2}/>
+                <BarComponent barcode={barData3}/>
                 <div className="grid">
-                    <div className="columnName">Coke 330 ml</div>
-                    <div className="columnName1"></div>
+                    <div className="product-name">Coke 330 ml</div>
+                    <div className="grid-cell"></div>
                     <GridComponent/>
                     <GridComponent/>
                     <GridComponent/>
@@ -29,7 +40,7 @@ class DisplayBy extends Component{
                     <GridComponent/>
                     <GridComponent/>
                     <div>Cole lite 330 ml</div>
-                    <div className="columnName1"></div>
+                    <div className="grid-cell"></div>
                     <GridComponent/>
                     <GridComponent/>
                     <GridComponent/>
@@ -38,7 +49,7 @@ class DisplayBy extends Component{
                     <GridComponent/>
                     <GridComponent/>
                     <div>Fanta 330 ml</div>
-                    <div className="columnName1"></div>
+                    <div className="grid-cell"></div>
                     <GridComponent/>
                     <GridComponent/>
                     <GridComponent/>
@@ -47,7 +58,7 @@ class DisplayBy extends Component{
                     <GridComponent/>
                     <GridComponent/>
                     <div>Limca 330 ml</div>
-                    <div className="columnName1"></div>
+                    <div className="grid-cell"></div>
                     <GridComponent/>
                     <GridComponent/>
                     <GridComponent/>
@@ -56,7 +67,7 @@ class DisplayBy extends Component{
                     <GridComponent/>
                     <GridComponent/>
                     <div>Orange 330 ml<br></br></div>
-                    <div className="columnName1"></div>
+                    <div className="grid-cell"></div>
                     <GridComponent/>
                     <GridComponent/>
                     <GridComponent/>
@@ -65,7 +76,7 @@ class DisplayBy extends Component{
                     <GridComponent/>
                     <GridComponent/>
                     <div>Sprite 330 ml</div>
-                    <div className="columnName1"></div>
+                    <div className="grid-cell"></div>
                     <GridComponent/>
                     <GridComponent/>
                     <GridComponent/>
@@ -78,4 +89,4 @@ class DisplayBy extends Component{
         );
     }
 }
-export default DisplayBy;
+export default DisplayGrid;
