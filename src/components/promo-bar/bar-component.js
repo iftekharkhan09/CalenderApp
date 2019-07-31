@@ -29,13 +29,13 @@ class BarComponent extends Component {
                     height: height,
                 }}
                 onResizeStop={(e, direction, ref, delta, position) => {
-                    this.setState({
-                        width: ref.style.width,
-                        height: ref.style.height,
-                        ...position,
-                    });
                     console.log('direction',direction);
                     if(direction.toUpperCase().includes('RIGHT')) {
+                        this.setState({
+                            width: ref.style.width,
+                            height: ref.style.height,
+                            ...position,
+                        });
                         let totalWidthFromIndexPosition = (Number(position.x) + Number(this.state.width.replace('px', '')));
                         let endGridIndex = (totalWidthFromIndexPosition - productNameColumnWidth) / gridWidth;
                         if (!this.isInt(endGridIndex))
@@ -44,7 +44,12 @@ class BarComponent extends Component {
                         let finalWidth = gridWidth * endGridIndex - diff;
                         this.updateSize(finalWidth);
                     }
-                    else{
+                    else if(direction.toUpperCase().includes('LEFT')){
+                        this.setState({
+                            width: ref.style.width,
+                            height: ref.style.height,
+                            ...position,
+                        });
                         let endPosition = position.x;
                         if(endPosition - productNameColumnWidth > 0) {
                             let nearestGridIndex = Math.floor((endPosition - productNameColumnWidth) / gridWidth);
