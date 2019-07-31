@@ -12,6 +12,11 @@ class BarComponent extends Component {
     isInt(n){
         return Number(n) === n && n % 1 === 0;
     }
+    onDragStart = (e) =>{
+        console.log('inside drag start!');
+        e.dataTransfer.setData("text", e.target.id);
+    };
+
     render() {
         const x = this.props.barcomponent.x;
         const y = this.props.barcomponent.y;
@@ -61,10 +66,9 @@ class BarComponent extends Component {
                     }
                 }}
             >
-                <div className='draggable-item'>Drag/Resize Me</div>
+                <div className='draggable-item' draggable="true" onDragStart={ (e) => this.onDragStart(e) }>Drag/Resize Me</div>
             </Rnd>
         );
     }
 }
-
 export default BarComponent;

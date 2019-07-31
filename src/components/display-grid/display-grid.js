@@ -3,6 +3,14 @@ import BarComponent from "../promo-bar/bar-component";
 import GridComponent from "./grid-component";
 
 class DisplayGrid extends Component{
+    allowDrop = ev =>{
+        ev.preventDefault();
+    };
+    onDrop = ev =>{
+        ev.preventDefault();
+        let data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(data);
+    };
     render() {
         const barcomponent1 = {
             x : 0,
@@ -25,7 +33,7 @@ class DisplayGrid extends Component{
             height: 200,
         };
         return (
-            <div className="promo-graph">
+            <div className="promo-graph" onDragOver={this.allowDrop} onDrop={this.onDrop}>
                 <BarComponent barcomponent={barcomponent1}/>
                 <BarComponent barcomponent={barcomponent2}/>
                 <BarComponent barcomponent={barcomponent3}/>
