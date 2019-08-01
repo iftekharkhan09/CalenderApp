@@ -19,17 +19,26 @@ class BarComponent extends Component {
         const height = this.props.barcomponent.height;
         const productNameColumnWidth = 250;
         const gridWidth = 200;
-
+        let startIndex;
         return (
-            <Rnd ref={c => { this.rnd = c; }} disableDragging={true} dragAxis='x'
+            <Rnd ref={c => { this.rnd = c; }} dragAxis="x"
                 default={{
                     x: x,
                     y: y,
                     width: width,
                     height: height,
                 }}
+                 /*onDragStop={(e, d) => {
+                     let endGridIndex = Math.floor((startIndex - productNameColumnWidth) / gridWidth) ;
+                     let diff = startIndex - productNameColumnWidth - (endGridIndex*gridWidth);
+                     let nearestGridIndex = Math.floor((d.x - productNameColumnWidth) / gridWidth);
+                     let updatedXCoordinate = productNameColumnWidth + (gridWidth * nearestGridIndex);
+                     this.updatePosition(updatedXCoordinate+diff);
+                 }}
+                 onDragStart={(e, d) => {
+                     startIndex = d.x;
+                 }}*/
                 onResizeStop={(e, direction, ref, delta, position) => {
-                    console.log('direction',direction);
                     if(direction.toUpperCase().includes('RIGHT')) {
                         this.setState({
                             width: ref.style.width,
