@@ -8,7 +8,7 @@ import DisplayGrid from "../display-grid/display-grid";
 class PromoCalender extends Component {
     render() {
          return (
-             <div>
+             <div className="container">
                 <div className="week-financial">
                     <DisplayMeasure/>
                     <div className="financial-container">

@@ -9,7 +9,7 @@ class BarComponent extends Component {
     updatePosition(x) {
         this.rnd.updatePosition({ x: x });
     }
-    isInt(n) {
+    static isInt(n) {
         return Number(n) === n && n % 1 === 0;
     }
 
@@ -21,7 +21,7 @@ class BarComponent extends Component {
         const productNameColumnWidth = 250;
         const gridWidth = 200;
         let startIndex;
-
+        let totalContainerWidth = productNameColumnWidth + (gridWidth*8);
         return (
             <Rnd ref={c => { this.rnd = c; }} dragAxis='x'
                 default={{
@@ -40,16 +40,15 @@ class BarComponent extends Component {
                  onDragStart={(e, d) => {
                      startIndex = d.x;
                  }}
-                onDrag={(e,d)=>{
+                onDrag={(e,d)=> {
                     let barWidth = d.node.offsetWidth;
-                    let totalContainerWidth = productNameColumnWidth + (gridWidth*8);
                     let endPosition = startIndex + barWidth;
-                    let diff = endPosition - totalContainerWidth;
-                    if(diff  > 0){
-                        console.log('came here!!');
-                     this.updateSize(barWidth-diff);
-                    }
-            }}
+                    let diff = totalContainerWidth - endPosition;
+                    if(diff <= 0) {
+                        this.updateSize(barWidth + diff);
+                     }
+                }
+            }
                 onResizeStop={(e, direction, ref, delta, position) => {
                     console.log('direction',direction);
                     if(direction.toUpperCase().includes('RIGHT')) {
@@ -60,7 +59,7 @@ class BarComponent extends Component {
                         });
                         let totalWidthFromIndexPosition = (Number(position.x) + Number(this.state.width.replace('px', '')));
                         let endGridIndex = (totalWidthFromIndexPosition - productNameColumnWidth) / gridWidth;
-                        if (!this.isInt(endGridIndex))
+                        if (!BarComponent.isInt(endGridIndex))
                             endGridIndex = Math.floor(endGridIndex) + 1;
                         let diff = Number(position.x - productNameColumnWidth);
                         let finalWidth = gridWidth * endGridIndex - diff;

@@ -12,3 +12,8 @@
     border-left: lightgrey 1px solid;
 }
 
+.container{
+    width:1850px;
+    max-width:1850px; /* or whatever width you want. */
+    display: inline-block;
+}
