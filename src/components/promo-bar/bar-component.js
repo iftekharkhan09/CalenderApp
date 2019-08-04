@@ -2,6 +2,18 @@ import React, {Component} from 'react';
 import '../display-grid/display-grid.css';
 import {Rnd} from "react-rnd";
 
+export const type = {
+    bottom: false,
+    bottomLeft: false,
+    bottomRight: false,
+    left: true,
+    right: true,
+    top: false,
+    topLeft: false,
+    topRight: false,
+};
+
+
 class BarComponent extends Component {
     updateSize(width) {
         this.rnd.updateSize({ width: width });
@@ -21,41 +33,28 @@ class BarComponent extends Component {
         const productNameColumnWidth = 250;
         const gridWidth = 200;
         let startIndex;
+        let containerWidth=1850;
 
         return (
-            <Rnd ref={c => { this.rnd = c; }} dragAxis='x'
+            <Rnd ref={c => { this.rnd = c; }} dragAxis='x' enableResizing={type}
                 default={{
                     x: x,
                     y: y,
                     width: width,
                     height: height,
                 }}
-                 bounds=".promo-graph"
-                 /*onDragStop={(e, d) => {
-                     let endGridIndex = Math.floor((startIndex - productNameColumnWidth) / gridWidth) ;
-                     let diff = startIndex - productNameColumnWidth - (endGridIndex*gridWidth);
-                     let nearestGridIndex = Math.floor((d.x - productNameColumnWidth) / gridWidth);
-                     let updatedXCoordinate = productNameColumnWidth + (gridWidth * nearestGridIndex);
-                     this.updatePosition(updatedXCoordinate+diff);
-                 }}*/
+                 bounds="window"
                  onDragStart={(e, d) => {
                      startIndex = d.x;
                  }}
                 onDrag={(e,d)=>{
-                    let barWidth = d.node.offsetWidth-1;
-                    if(e.x >= 1600){
-                        this.updateSize(barWidth)
-
-                    }
-                    // let barWidth = d.node.offsetWidth;
-                    // let totalContainerWidth = productNameColumnWidth + (gridWidth*8);
-                    // let endPosition = startIndex + barWidth;
-                    // let diff = endPosition - totalContainerWidth;
-                    // if(diff  > 0){
-                    //     console.log('came here!!');
-                    //  this.updateSize(barWidth-diff);
-                    // }
-            }}
+                    let barWidth = d.node.offsetWidth;
+                    let startPos = d.x;
+                    let diff = containerWidth - (startPos + barWidth);
+                    if(diff <= 0 && barWidth> 40) {
+                        this.updateSize(barWidth-20);
+                    }}
+            }
                 onResizeStop={(e, direction, ref, delta, position) => {
                     console.log('direction',direction);
                     if(direction.toUpperCase().includes('RIGHT')) {
