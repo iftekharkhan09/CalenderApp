@@ -3,37 +3,29 @@ import BarComponent from "../promo-bar/bar-component";
 import GridComponent from "./grid-component";
 
 class DisplayGrid extends Component{
-    allowDrop = ev =>{
-        ev.preventDefault();
-    };
-    onDrop = ev =>{
-        ev.preventDefault();
-        let data = ev.dataTransfer.getData("text");
-        ev.target.appendChild(data);
-    };
     render() {
         const barcomponent1 = {
-            x : 0,
-            y:0,
-            width: 320,
-            height: 200,
+            x : 250,
+            y: 0,
+            height: 20,
+            width:300
         };
 
         const barcomponent2 ={
-            x : 273,
-            y:  150,
-            width: 320,
-            height: 200,
+            x : 450,
+            y:  120,
+            height: 20,
+            width:500
         };
 
         const barcomponent3 ={
-            x : 300,
-            y:200,
-            width: 320,
-            height: 200,
+            x : 400,
+            y:150,
+            height: 20,
+            width:50
         };
         return (
-            <div className="promo-graph" onDragOver={this.allowDrop} onDrop={this.onDrop}>
+            <div className="promo-graph">
                 <BarComponent barcomponent={barcomponent1}/>
                 <BarComponent barcomponent={barcomponent2}/>
                 <BarComponent barcomponent={barcomponent3}/>
@@ -92,8 +84,7 @@ class DisplayGrid extends Component{
                     <GridComponent/>
                     <GridComponent/>
                     <GridComponent/>
-                </div>
-            </div>
+                </div></div>
         );
     }
 }

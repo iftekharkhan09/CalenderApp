@@ -9,8 +9,6 @@
 }
 .week-financial > div {
     display: flex;
-    justify-content: space-evenly;
     border-left: lightgrey 1px solid;
-    padding: 20px;
 }
 

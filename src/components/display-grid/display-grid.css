@@ -21,9 +21,12 @@
     box-sizing: border-box;
 }
 
-.promo-graph{}
+.promo-graph{
+position: relative;
+}
 
 .draggable-item {
     background-color: red;
-    text-align: center;
+    text-align: right;
+    font-family: "Times New Roman";
 }

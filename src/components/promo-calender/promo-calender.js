@@ -14,7 +14,7 @@ class PromoCalender extends Component {
                     <div className="financial-container">
                         <Financial index="0"/>
                         <Financial index="1"/>
-                        <Financial index="2"/>x
+                        <Financial index="2"/>
                         <Financial index="3"/>
                         <Financial index="4"/>
                         <Financial index="5"/>
@@ -22,7 +22,9 @@ class PromoCalender extends Component {
                         <Financial index="7"/>
                     </div>
                 </div>
+                 <div>
                     <DisplayGrid/>
+                 </div>
                  </div>
         );
     }

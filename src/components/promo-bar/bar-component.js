@@ -9,13 +9,9 @@ class BarComponent extends Component {
     updatePosition(x) {
         this.rnd.updatePosition({ x: x });
     }
-    isInt(n){
+    isInt(n) {
         return Number(n) === n && n % 1 === 0;
     }
-    onDragStart = (e) =>{
-        console.log('inside drag start!');
-        e.dataTransfer.setData("text", e.target.id);
-    };
 
     render() {
         const x = this.props.barcomponent.x;
@@ -24,15 +20,36 @@ class BarComponent extends Component {
         const height = this.props.barcomponent.height;
         const productNameColumnWidth = 250;
         const gridWidth = 200;
+        let startIndex;
 
         return (
-            <Rnd ref={c => { this.rnd = c; }} disableDragging={true} dragAxis='x'
+            <Rnd ref={c => { this.rnd = c; }} dragAxis='x'
                 default={{
                     x: x,
                     y: y,
                     width: width,
                     height: height,
                 }}
+                 /*onDragStop={(e, d) => {
+                     let endGridIndex = Math.floor((startIndex - productNameColumnWidth) / gridWidth) ;
+                     let diff = startIndex - productNameColumnWidth - (endGridIndex*gridWidth);
+                     let nearestGridIndex = Math.floor((d.x - productNameColumnWidth) / gridWidth);
+                     let updatedXCoordinate = productNameColumnWidth + (gridWidth * nearestGridIndex);
+                     this.updatePosition(updatedXCoordinate+diff);
+                 }}*/
+                 onDragStart={(e, d) => {
+                     startIndex = d.x;
+                 }}
+                onDrag={(e,d)=>{
+                    let barWidth = d.node.offsetWidth;
+                    let totalContainerWidth = productNameColumnWidth + (gridWidth*8);
+                    let endPosition = startIndex + barWidth;
+                    let diff = endPosition - totalContainerWidth;
+                    if(diff  > 0){
+                        console.log('came here!!');
+                     this.updateSize(barWidth-diff);
+                    }
+            }}
                 onResizeStop={(e, direction, ref, delta, position) => {
                     console.log('direction',direction);
                     if(direction.toUpperCase().includes('RIGHT')) {
@@ -66,7 +83,7 @@ class BarComponent extends Component {
                     }
                 }}
             >
-                <div className='draggable-item' draggable="true" onDragStart={ (e) => this.onDragStart(e) }>Drag/Resize Me</div>
+                <div className='draggable-item'>12.5%</div>
             </Rnd>
         );
     }
