@@ -30,6 +30,7 @@ class BarComponent extends Component {
                     width: width,
                     height: height,
                 }}
+                 bounds=".promo-graph"
                  /*onDragStop={(e, d) => {
                      let endGridIndex = Math.floor((startIndex - productNameColumnWidth) / gridWidth) ;
                      let diff = startIndex - productNameColumnWidth - (endGridIndex*gridWidth);
@@ -41,14 +42,19 @@ class BarComponent extends Component {
                      startIndex = d.x;
                  }}
                 onDrag={(e,d)=>{
-                    let barWidth = d.node.offsetWidth;
-                    let totalContainerWidth = productNameColumnWidth + (gridWidth*8);
-                    let endPosition = startIndex + barWidth;
-                    let diff = endPosition - totalContainerWidth;
-                    if(diff  > 0){
-                        console.log('came here!!');
-                     this.updateSize(barWidth-diff);
+                    let barWidth = d.node.offsetWidth-1;
+                    if(e.x >= 1600){
+                        this.updateSize(barWidth)
+
                     }
+                    // let barWidth = d.node.offsetWidth;
+                    // let totalContainerWidth = productNameColumnWidth + (gridWidth*8);
+                    // let endPosition = startIndex + barWidth;
+                    // let diff = endPosition - totalContainerWidth;
+                    // if(diff  > 0){
+                    //     console.log('came here!!');
+                    //  this.updateSize(barWidth-diff);
+                    // }
             }}
                 onResizeStop={(e, direction, ref, delta, position) => {
                     console.log('direction',direction);
